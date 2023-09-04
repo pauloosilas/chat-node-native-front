@@ -3,13 +3,18 @@ import { createStackNavigator } from "@react-navigation/stack"
 import { AuthStartScreen, LoginScreen, RegisterScreen} from "../../screens/Auth"
 import { screens } from "../../utils"
 import { IconBack } from '../../components/Navigation';
+import {styles} from '../Styles.styles'  
 
 const Stack = createStackNavigator();
 
 export const AuthNavigation = () => {
   return (
     <Stack.Navigator 
-            screenOptions={{headerLeft: IconBack}}>
+            screenOptions={{
+                ...styles.stackNavigationStyles,
+                contentStyle: "#900",
+                headerLeft: IconBack
+            }}>
         <Stack.Screen 
             name={screens.auth.authStartScreen}
             component={AuthStartScreen} 
