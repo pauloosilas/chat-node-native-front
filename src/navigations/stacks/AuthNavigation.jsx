@@ -12,7 +12,6 @@ export const AuthNavigation = () => {
     <Stack.Navigator 
             screenOptions={{
                 ...styles.stackNavigationStyles,
-                contentStyle: "#900",
                 headerLeft: IconBack
             }}>
         <Stack.Screen 
