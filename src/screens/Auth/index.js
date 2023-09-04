@@ -1,3 +1,3 @@
 export * from "./AuthStartScreen";
 export * from "./LoginScreen";
-export * from "./RegisterScreen.js";
+export * from "./RegisterScreen";

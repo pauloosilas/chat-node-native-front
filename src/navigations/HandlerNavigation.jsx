@@ -1,18 +1,12 @@
 import React from 'react'
 import {View, Text} from "react-native"
+import { AuthNavigation } from './stacks/AuthNavigation'
+
 
 export const AppNavigation = () => {
     return(
         <View>
             <Text>AppNavigation</Text>
-        </View>
-    )
-}
-
-export const AuthNavigation = () => {
-    return(
-        <View>
-            <Text>AuthNavigation</Text>
         </View>
     )
 }
