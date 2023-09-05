@@ -8,7 +8,7 @@ import { screens } from '../../utils'
 
 const Stack = createStackNavigator();
 
-export const GroupNavigation = () => {
+export const GroupsNavigation = () => {
   return (
   <Stack.Navigator screenOptions={{...styles.stackNavigationStyles}}>
     <Stack.Screen name={screens.tab.groups.groupsScreen}

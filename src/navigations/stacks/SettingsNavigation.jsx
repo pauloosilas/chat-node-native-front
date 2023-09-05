@@ -15,12 +15,12 @@ export const SettingsNavigation = () => {
   return (
     <Stack.Navigator screenOptions={{ ...styles.stackNavigationStyles }}>
         <Stack.Screen 
-            name={screens.settings.SettingsScreen}
+            name={screens.tab.settings.settingScreen}
             component={SettingsScreen}
             options={{ headerShown: false}}
          />
         <Stack.Screen 
-            name={screens.settings.ChangeFirstNameScreen}
+            name={screens.tab.settings.changeFirstNameScreen}
             component={ChangeFirstNameScreen}
             options={{
                  title: "Alterar Nome",
@@ -28,13 +28,16 @@ export const SettingsNavigation = () => {
                 }}
          />
           <Stack.Screen 
-            name={screens.settings.ChangeLastNameScreen}
+            name={screens.tab.settings.changeLastNameScreen}
             component={ChangeLastNameScreen}
             options={{
                  title: "Alterar Sobrenome",
                  presentation: "modal"
                 }}
          />
+
+               
+
     </Stack.Navigator>
   )
 }
