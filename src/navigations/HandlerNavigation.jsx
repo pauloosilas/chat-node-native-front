@@ -5,7 +5,7 @@ import {AppNavigation} from "./AppNavigation"
 
 
 export const HandlerNavigation = () => {
-    const user = {msg: "teste"}
+    const user = null
  
     return user ? <AppNavigation /> : <AuthNavigation />
 }
