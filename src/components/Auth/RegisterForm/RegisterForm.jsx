@@ -3,16 +3,26 @@ import {Input, Button} from "native-base"
 import { useNavigation } from "@react-navigation/native"
 import { useFormik } from "formik"
 import { initialValues, validationSchema } from "./RegisterForm.form"
+import { Auth } from "../../../api" 
 import { styles } from "./RegisterForm.styles"
 
+const authController = new Auth();
+
 export const RegisterForm = () => {
+ 
+ const navigation = useNavigation()
 
  const formik = useFormik({
     initialValues: initialValues(),
     validationSchema: validationSchema(),
     validateOnChange: false,
     onSubmit: async(formValue) => {
-        console.log(formValue)
+        try {
+            await authController.register(formValue.email, formValue.password)
+            navigation.goBack();
+        } catch (error) {            
+            console.log(error)
+        }
     }
  })
 
@@ -22,7 +32,7 @@ export const RegisterForm = () => {
             <Input
                 placeholder="Email"
                 variant="unstyled"
-                autoCapitalize="false"
+                autoCapitalize={false}
                 value={formik.values.email}
                 onChangeText = {(text) => {formik.setFieldValue("email", text)}}
                 style={[styles.input, formik.errors.email && styles.inputError]}
