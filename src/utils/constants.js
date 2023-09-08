@@ -9,6 +9,7 @@ export const ENV = {
     AUTH: {
       REGISTER: "auth/register",
       LOGIN: "auth/login",
+      REFRESH_ACCESS_TOKEN: "auth/refresh_access_token",
     },
     ME: "user/me",
   },

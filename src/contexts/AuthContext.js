@@ -33,11 +33,20 @@ export function AuthProvider(props) {
       } else {
         await login(accessToken);
       }
+      setLoading(false);
     })();
   }, []);
 
   const reLogin = async (refreshToken) => {
-    console.log("relogin");
+    try {
+      const { accessToken } = await authController.refreshAccessToken(
+        refreshToken
+      );
+      await authController.setAccessToken(accessToken);
+      await login();
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const login = async (accessToken) => {
@@ -54,11 +63,17 @@ export function AuthProvider(props) {
   };
 
   const logout = async () => {
-    console.log("###############");
-    console.log("LOGOUT");
+    setUser(null);
+    setToken(null);
+    authController.removeTokens();
   };
 
-  const updateUser = (key, value) => {};
+  const updateUser = (key, value) => {
+    setUser({
+      ...user,
+      [key]: value,
+    });
+  };
 
   const data = {
     accessToken: token,
