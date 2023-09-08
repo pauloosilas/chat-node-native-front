@@ -19,6 +19,10 @@ export const LoginForm = () => {
        try {
          const response =  await authController.login(formValue.email, formValue.password) 
          const { access, refresh } = response
+        
+        await authController.setAccessToken(access)
+        await authController.setRefreshToken(refresh)
+
          await login(access)
 
        } catch (error) {
