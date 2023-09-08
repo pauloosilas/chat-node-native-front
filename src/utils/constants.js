@@ -10,5 +10,6 @@ export const ENV = {
       REGISTER: "auth/register",
       LOGIN: "auth/login",
     },
+    ME: "user/me",
   },
 };
