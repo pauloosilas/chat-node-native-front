@@ -5,7 +5,7 @@ export const styles = StyleSheet.create({
     margin: 20,
   },
   title: {
-    color: "#fff",
+    color: "#333",
     marginVertical: 15,
     opacity: 0.6,
   },

@@ -16,7 +16,16 @@ export function AuthProvider(props) {
 
   const reLogin = async (refreshToken) => {};
 
-  const login = async (accessToken) => {};
+  const login = async (accessToken) => {
+    try {
+      setLoading(true);
+      setUser({ username: "Paulo" });
+      setToken(accessToken);
+    } catch (error) {
+      console.log(error);
+      setLoading(false);
+    }
+  };
 
   const logout = async () => {};
 

@@ -8,6 +8,7 @@ export const ENV = {
   ENDPOINT: {
     AUTH: {
       REGISTER: "auth/register",
+      LOGIN: "auth/login",
     },
   },
 };

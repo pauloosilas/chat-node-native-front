@@ -15,6 +15,6 @@ export const styles = StyleSheet.create({
     marginTop: 10,
   },
   inputError: {
-    backgroundColor: "#0270C0D",
+    backgroundColor: "#270C0D",
   },
 });
