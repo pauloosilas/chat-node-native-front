@@ -3,6 +3,7 @@ import { View, Text } from "react-native"
 import { useNavigation } from "@react-navigation/native"
 import {styles} from "./LoginScreen.Styles"
 import {screens} from "./../../../utils"
+import { LoginForm } from "../../../components/Auth/LoginForm"
 
 export const LoginScreen = () => {
   
@@ -15,7 +16,7 @@ export const LoginScreen = () => {
     <View style={styles.content}>
         <Text style={styles.title}>Entre para começar</Text>
 
-        <Text style={{color: "#333"}}>LoginForm</Text>
+        <LoginForm />
 
         <Text style={styles.register} onPress={goToRegister}>Registrar-se</Text>
       
