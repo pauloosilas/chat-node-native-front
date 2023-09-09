@@ -1,13 +1,14 @@
 import React from "react";
-import { SafeAreaView, Text, View } from "react-native";
-import { Button } from "native-base";
+import { SafeAreaView } from "react-native";
 import { useAuth } from "../../hooks";
+import {UserInfo} from "../../components/settings"
+
 export const SettingsScreen = () => {
-  const {logout} = useAuth()
+  const {user} = useAuth()
+
   return (
     <SafeAreaView>
-      <Text>SettingsScreen</Text>
-      <Button onPress={ logout }>Encerrar sessão</Button> 
+      <UserInfo user={user} />
     </SafeAreaView>
   );
 };
