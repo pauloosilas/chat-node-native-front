@@ -39,10 +39,10 @@ export class User {
         body: formData,
       };
 
-      const reesponse = await fetch(url, params);
+      const response = await fetch(url, params);
       const result = await response.json();
 
-      if (reesponse.status !== 200) throw result;
+      if (response.status !== 200) throw result;
 
       return result;
     } catch (error) {
