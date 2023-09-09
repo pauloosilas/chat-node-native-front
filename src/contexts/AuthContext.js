@@ -53,7 +53,6 @@ export function AuthProvider(props) {
     try {
       setLoading(true);
       const response = await userController.getMe(accessToken);
-      console.log(response);
       setUser(response);
       setToken(accessToken);
     } catch (error) {

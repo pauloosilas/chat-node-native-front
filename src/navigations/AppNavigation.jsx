@@ -3,8 +3,11 @@ import {ButtonTabNavigation} from "./ButtonTabNavigation"
 import {UserProfileScreen, CameraScreen, ImageFullScreen} from "../screens/Global"
 import {ChatScreen} from "../screens/Chats"
 import {GroupScreen,GroupProfileScreen,AddUserGroupScreen,ChangeNameGroupScreen} from "../screens/Groups"
-import {screens} from "../utils"
+import {screens, initSockets} from "../utils"
+
 import { styles }from "./Styles.styles"
+
+initSockets();
 
 const Stack = createStackNavigator();
 
