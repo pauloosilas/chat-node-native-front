@@ -1,5 +1,5 @@
 import {  createStackNavigator } from "@react-navigation/stack"
-import {ChatScreen, ChatsScreen, CreateChatScreen} from "../../screens/Chats"
+import {ChatScreen, ChatsScreen, CreateChatScreen, CreateChatScreens} from "../../screens/Chats"
 import { screens } from "../../utils"
 import { styles } from "../Styles.styles"
 
@@ -19,7 +19,7 @@ export const ChatsNavigation= () =>{
         />
          <Stack.Screen
             name={screens.tab.chats.createChatScreen}
-            component={ChatScreen}
+            component={CreateChatScreens}
             options={{
                 title: "Novo Chat",
                 presentation: "modal",
