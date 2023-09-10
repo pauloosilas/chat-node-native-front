@@ -8,7 +8,7 @@ export const styles = new StyleSheet.create({
   },
   img: {
     width: "100%",
-    height: 400,
+    height: 320,
     resizeMode: "contain",
     marginVertical: 20,
   },

@@ -14,7 +14,7 @@ export const ChatsNavigation= () =>{
 
         <Stack.Screen
             name={screens.tab.chats.chatsScreen}
-            component={ChatScreen}
+            component={ChatsScreen}
             options={{title: "Chats"}}
         />
          <Stack.Screen
@@ -22,7 +22,7 @@ export const ChatsNavigation= () =>{
             component={ChatScreen}
             options={{
                 title: "Novo Chat",
-                presentation: "model",
+                presentation: "modal",
                 ...styles.modalStyles,
             }}
         />
