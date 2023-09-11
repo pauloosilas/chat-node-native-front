@@ -3,15 +3,25 @@ import { Avatar } from "native-base";
 import { useNavigation } from "@react-navigation/native";
 import { map } from "lodash";
 import { ENV } from "../../../utils";
+import { Chat } from "../../../api";
+import { useAuth } from "../../../hooks";
 import { styles } from "./ListUsers.styles";
  
+const chatController = new Chat();
 
 export function ListUser(props) {
 
   const { users } = props;
-  console.log(users)
-  const createChat = (user) => {
-    console.log("criar chat com o email", user.email);
+  const auth = useAuth();
+  const navigation = useNavigation(); 
+
+  const createChat = async (user) => {
+    try {
+      await chatController.create(auth.accessToken, auth.user._id, user._id)
+      navigation.goBack();
+    } catch (error) {
+      console.log(error)
+    }
   };
 
   return (

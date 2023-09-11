@@ -13,6 +13,7 @@ export const ENV = {
     },
     ME: "user/me",
     USER: "user",
+    CHAT: "chat",
   },
   JWT: {
     ACCESS: "access",
