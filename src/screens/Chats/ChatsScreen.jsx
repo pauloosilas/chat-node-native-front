@@ -1,11 +1,19 @@
-import {useEffect} from "react";
+import {useState, useEffect, useCallback} from "react";
 import { Text, View } from "react-native";
-import {useNavigation} from "@react-navigation/native"
+import {useNavigation, useFocusEffect} from "@react-navigation/native"
 import {IconButton, AddIcon, CloseIcon} from "native-base"
 import { screens } from "../../utils";
+import { Chat } from "../../api";
+import { useAuth } from "../../hooks";
+
+const chatController = new Chat()
 
 export const ChatsScreen = () => {
+
   const navigation = useNavigation();
+  const {accessToken} = useAuth();
+  const [chats, setChats] = useState(null)
+  const [chatsResult, setChatsResult] = useState(null)
 
   useEffect(() => {
     navigation.setOptions({
@@ -17,7 +25,23 @@ export const ChatsScreen = () => {
         onPress={()=> navigation.navigate(screens.tab.chats.createChatScreen)} />
       ),
     })
-  },[])
+  },[]);
+
+  //Executa sempre que o item do menu é clicado
+  useFocusEffect(
+    useCallback(() => {
+     (async () => {
+      try {
+        const response = await chatController.getAll(accessToken)
+        setChats(response)
+        setChatsResult(response)
+      } catch (error) {
+        console.log(error)
+      }
+     })
+    })   
+  )
+  
 
   return (
     <View>

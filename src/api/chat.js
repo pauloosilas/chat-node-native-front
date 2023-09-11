@@ -26,4 +26,24 @@ export class Chat {
       throw error;
     }
   }
+
+  async getAll(token) {
+    try {
+      const url = `${ENV.API_URL}/${ENV.ENDPOINT.CHAT}`;
+      const params = {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      };
+
+      const response = await fetch(url, params);
+      result = await response.json();
+
+      if (response.status !== 200) throw error;
+
+      return result;
+    } catch (error) {
+      throw error;
+    }
+  }
 }
