@@ -1,7 +1,9 @@
 import {useState, useEffect, useCallback} from "react";
 import { Text, View } from "react-native";
 import {useNavigation, useFocusEffect} from "@react-navigation/native"
+import { size } from "lodash";
 import {IconButton, AddIcon, CloseIcon} from "native-base"
+import { ListChat } from "../../components/Chats"; 
 import { screens } from "../../utils";
 import { Chat } from "../../api";
 import { useAuth } from "../../hooks";
@@ -30,22 +32,25 @@ export const ChatsScreen = () => {
   //Executa sempre que o item do menu é clicado
   useFocusEffect(
     useCallback(() => {
-     (async () => {
-      try {
-        const response = await chatController.getAll(accessToken)
-        setChats(response)
-        setChatsResult(response)
-      } catch (error) {
-        console.log(error)
-      }
-     })
-    })   
+      (async () => {
+        try {
+          console.log("TESTE:")
+          const response = await chatController.getAll(accessToken)
+          console.log("TESTE:", response)
+          setChats(response)
+          setChatsResult(response)
+        } catch (error) {
+          console.log(error)
+        }
+       })(); //lembrar de chamar ()
+    }, [])   
   )
   
+  if(!chatsResult) return null
 
   return (
     <View>
-      <Text>ChatsScreeasdfasdfrn</Text>
+      <ListChat chats={size(chats) === size(chatsResult) ? chats : chatsResult} />
     </View>
   );
 };

@@ -36,7 +36,7 @@ export function ListUser(props) {
            source={{uri: user.avatar && `${ENV.BASE_PATH}/${user.avatar}`}}>
             {user.email.substring(0, 2).toUpperCase()}
           </Avatar>
-          {console.log(user.firstname)}
+        
           <View>
             <Text style={styles.name}>
               {user.firstname || user.lastname ? `${user.firstname || ""} ${user.lastname || ""}` : "..."}
@@ -48,7 +48,7 @@ export function ListUser(props) {
 
         </TouchableOpacity>
       ))}
-      <Text>ListUser</Text>
+     
     </ScrollView>
   );
 };
