@@ -39,6 +39,8 @@ export const CreateChatScreens = () => {
     })()
   }, [])
 
+  if(!usersResult) return null
+
   return (
     <View>
       <Search data={users} setData={setUsersResult} />
