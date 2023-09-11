@@ -21,7 +21,7 @@ export const ChangeLastNameScreen = () => {
     validateOnChange: false,
     onSubmit: async (formValue) => {
       try {
-         const updateData = {lastname: FormData.lastname}
+         const updateData = {lastname: formValue.lastname}
          await userController.updateUser(accessToken, updateData)  
          updateUser("lastname", formValue.lastname);
          navigation.goBack();
