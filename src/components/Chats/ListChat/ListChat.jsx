@@ -1,5 +1,6 @@
 import { View, ScrollView, Text } from "react-native";
 import { map, size } from "lodash";
+import {Item} from "./Item"
 import { styles } from "./ListChat.styles";
 
 export const ListChat = ({ chats }) => {
@@ -13,7 +14,7 @@ export const ListChat = ({ chats }) => {
         ) : null}
 
         {map(chats, (chat) => (
-          <Text>Chat...</Text>
+          <Item key={chat._id} chat={chat} />
         ))}
       </View>
     </ScrollView>
